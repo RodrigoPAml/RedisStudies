@@ -2,7 +2,7 @@
 
 A repository to study the basics of redis using C#.
 
-The equivalent commands in redis used in C# examples are in the examples txt's.
+The equivalent commands in redis used in C# examples are in the project examples txt's.
 
 # About
 
