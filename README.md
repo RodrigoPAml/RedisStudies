@@ -355,13 +355,13 @@ class Program
 }
 ```
 
-# Keys pattern and scan
+# Keys pattern and Scan for Regex
 
 You can use the KEYS command in Redis to find keys that match a specific pattern. The KEYS command is suitable for debugging and development purposes but should be used with caution in production, especially if you have a large number of keys, as it can be resource-intensive.
 
-The basic syntax of the KEYS command is KEY pattern.
+The basic syntax of the KEYS command is ```KEY pattern```.
 
-Example
+Examples:
 
 ```
 # Find all keys that start with "user_"
@@ -374,11 +374,12 @@ KEYS *2023*
 KEYS *_data
 ```
 
+## Scan for complexity improvement
+
 You can achieve similar functionality by using the SCAN command in combination with a client-side filter in your application code. Here's how you can do it:
 
-Use the SCAN command to iterate through all keys in the Redis database. The SCAN command provides cursor-based iteration through the keys.
-
-On the client side, filter the keys that match your regular expression pattern.
+1. Use the SCAN command to iterate through all keys in the Redis database. The SCAN command provides cursor-based iteration through the keys.
+2. On the client side, filter the keys that match your regular expression pattern.
 
 ```C#
 using StackExchange.Redis;
