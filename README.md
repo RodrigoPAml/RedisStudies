@@ -355,4 +355,70 @@ class Program
 }
 ```
 
+# Keys pattern and scan
 
+You can use the KEYS command in Redis to find keys that match a specific pattern. The KEYS command is suitable for debugging and development purposes but should be used with caution in production, especially if you have a large number of keys, as it can be resource-intensive.
+
+The basic syntax of the KEYS command is KEY pattern.
+
+Example
+
+```
+# Find all keys that start with "user_"
+KEYS user_*
+
+# Find all keys that have "2023" in their name
+KEYS *2023*
+
+# Find all keys that end with "_data"
+KEYS *_data
+```
+
+You can achieve similar functionality by using the SCAN command in combination with a client-side filter in your application code. Here's how you can do it:
+
+Use the SCAN command to iterate through all keys in the Redis database. The SCAN command provides cursor-based iteration through the keys.
+
+On the client side, filter the keys that match your regular expression pattern.
+
+```C#
+using StackExchange.Redis;
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost");
+        IDatabase db = redis.GetDatabase();
+
+        // Define a regular expression pattern
+        string pattern = "user_.*";
+
+        // Create a regular expression object
+        var regex = new Regex(pattern);
+
+        int cursor = 0;
+        do
+        {
+            var result = db.Execute("SCAN", cursor.ToString(), "MATCH", "*", "COUNT", "10");
+            var nextCursor = (int)result[0];
+            var keys = (RedisResult[])result[1];
+
+            foreach (var key in keys)
+            {
+                string keyString = (string)key;
+                if (regex.IsMatch(keyString))
+                {
+                    Console.WriteLine(keyString);
+                }
+            }
+
+            cursor = nextCursor;
+        } while (cursor != 0);
+
+        // Close the Redis connection
+        redis.Close();
+    }
+}
+```
