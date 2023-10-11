@@ -1,0 +1,23 @@
+﻿# Select database 1
+SELECT 1
+
+# Set a key in database 1
+SET key1 "value1"
+
+# Select database 2
+SELECT 2
+
+# Set a key in database 2
+SET key2 "value2"
+
+# Select database 1 again
+SELECT 1
+
+# Get a key from database 1
+GET key1
+
+# Select database 2 again
+SELECT 2
+
+# Get a key from database 2
+GET key2

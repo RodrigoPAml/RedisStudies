@@ -1,0 +1,7 @@
+﻿# Add elements with scores to the Sorted Set
+ZADD leaderboard 1000 "player1"
+ZADD leaderboard 800 "player2"
+ZADD leaderboard 1200 "player3"
+
+# Retrieve elements by rank (top players)
+ZREVRANGE leaderboard 0 -1 WITHSCORES

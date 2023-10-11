@@ -1,0 +1,13 @@
+﻿# Left push elements to the list
+LPUSH myList "element1"
+LPUSH myList "element2"
+
+# Right push elements to the list
+RPUSH myList "element3"
+RPUSH myList "element4"
+
+# Remove elements from the list
+LREM myList 0 "element1"
+
+# Get the length of the list
+LLEN myList

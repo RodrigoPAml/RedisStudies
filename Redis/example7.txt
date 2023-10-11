@@ -1,0 +1,13 @@
+﻿# Add items to the set
+SADD mySet "item1"
+SADD mySet "item2"
+SADD mySet "item3"
+
+# Check if an item exists in the set
+SISMEMBER mySet "item1"
+
+# Get all items in the set
+SMEMBERS mySet
+
+# Remove an item from the set
+SREM mySet "item2"

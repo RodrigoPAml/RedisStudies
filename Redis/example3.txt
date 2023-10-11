@@ -1,0 +1,9 @@
+﻿# Set fields in a hash
+HSET user:1000 username "john_doe"
+HSET user:1000 age 30
+HSET user:1000 email "john@example.com"
+
+# Get values associated with fields in a hash
+HGET user:1000 username
+HGET user:1000 age
+HGET user:1000 email

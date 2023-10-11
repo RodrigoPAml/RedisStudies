@@ -1,0 +1,2 @@
+﻿# Publish a message to a channel
+PUBLISH myChannel "Hello, subscribers!"

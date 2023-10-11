@@ -1,0 +1,8 @@
+﻿# Find all keys that start with "user_"
+KEYS user_*
+
+# Find all keys that have "2023" in their name
+KEYS *2023*
+
+# Find all keys that end with "_data"
+KEYS *_data

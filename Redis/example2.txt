@@ -1,0 +1,8 @@
+﻿# Set a key-value pair
+SET myKey "Hello, Redis!"
+
+# Retrieve a value by key
+GET myKey
+
+# Delete the key
+DEL myKey
