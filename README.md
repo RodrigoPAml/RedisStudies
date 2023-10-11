@@ -4,6 +4,8 @@ A repository to study the basics of redis using C#.
 
 The equivalent commands in redis used in C# examples are in the examples txt's.
 
+# About
+
 Redis, which stands for "Remote Dictionary Server," is an open-source, in-memory data structure store. It is often referred to as a "data structure server" because it provides a way to store, manipulate, and manage data structures in memory. Redis is widely used for its speed, simplicity, and versatility. Here are some key features and use cases of Redis:
 
 1. **In-Memory Data Store**: Redis stores data primarily in RAM, which makes it exceptionally fast for read and write operations.
